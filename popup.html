@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YouTube Transcript & Summary</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <h1>视频文字记录</h1>
+      <p class="subtitle">一键获取字幕、生成摘要并提问 ChatGPT</p>
+    </header>
+
+    <section class="actions">
+      <button id="loadTranscript">获取字幕</button>
+      <button id="summarize" disabled>生成摘要</button>
+      <button id="askChatGPT" disabled>问 ChatGPT</button>
+    </section>
+
+    <section class="status" id="status"></section>
+
+    <section class="panel">
+      <h2>标题</h2>
+      <p id="videoTitle" class="muted">尚未加载</p>
+    </section>
+
+    <section class="panel">
+      <h2>文字记录</h2>
+      <textarea id="transcript" readonly placeholder="获取字幕后显示"></textarea>
+    </section>
+
+    <section class="panel">
+      <h2>摘要</h2>
+      <textarea id="summary" readonly placeholder="生成摘要后显示"></textarea>
+    </section>
+
+    <footer>
+      <a href="options.html" target="_blank">设置 OpenAI API Key</a>
+    </footer>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "YouTube Transcript & Summary",
+  "description": "快速获取 YouTube 视频文字记录、生成摘要，并通过工具栏直接向 ChatGPT 提问。",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "action": {
+    "default_title": "YouTube Transcript & Summary",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "options.html",
+  "permissions": ["activeTab", "storage", "scripting", "tabs"],
+  "host_permissions": ["https://www.youtube.com/*", "https://api.openai.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/watch*"],
+      "js": ["contentScript.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
